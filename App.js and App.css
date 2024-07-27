@@ -1,0 +1,106 @@
+//App.js//
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Posts from './components/Posts';
+import Post from './components/Post';
+import CreatePost from './components/CreatePost';
+import EditPost from './components/EditPost';
+
+const App = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Posts />} />
+        <Route path="/create" element={<CreatePost />} />
+        <Route path="/post/:id" element={<Post />} />
+        <Route path="/edit/:id" element={<EditPost />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default App;
+
+//App.css//
+ body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+                                         
+//App.test.js//
+
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
